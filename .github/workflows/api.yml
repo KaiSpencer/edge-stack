@@ -22,4 +22,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           workingDirectory: apps/api
           packageManager: bun
-          command: wrangler deploy --minify src/index.ts
+          command: deploy --minify src/index.ts
