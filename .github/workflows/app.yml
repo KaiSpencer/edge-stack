@@ -34,4 +34,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/remix-app
           packageManager: bun
-          command: pages deploy ./public
+          command: pages deploy ./public --project-name=full-stack-cloudflare-app
