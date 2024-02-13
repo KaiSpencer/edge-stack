@@ -1,6 +1,10 @@
-import { API } from "@full-stack-cloudflare/api";
-import { json, type MetaFunction } from "@remix-run/cloudflare";
+import {
+  json,
+  LoaderFunctionArgs,
+  type MetaFunction,
+} from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
+import { API } from "~/utils/api";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,8 +13,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export const loader = async () => {
-  const ping = await API["v1.0"].$get();
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+  const ping = await API(context)["v1.0"].$get();
   return json(await ping.json());
 };
 
