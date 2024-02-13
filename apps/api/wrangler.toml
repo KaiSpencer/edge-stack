@@ -1,6 +1,9 @@
 name = "full-stack-cloudflare-api"
 compatibility_date = "2023-12-01"
 
+[placement]
+mode = "smart"
+
 # [vars]
 # MY_VARIABLE = "production_value"
 
