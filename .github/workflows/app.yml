@@ -22,9 +22,8 @@ jobs:
         run: bun install
 
       - name: Build
+        working-directory: apps/remix-app
         run: bun run build
-        with:
-          working-directory: apps/remix-app
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
