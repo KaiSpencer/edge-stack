@@ -36,6 +36,8 @@ bun install
 
 ## Directory Structure
 
+```
 /apps
-/remix-app <-- Remix frontend
-/api <-- Hono backend
+    /remix-app  <-- Remix frontend
+    /api        <-- Hono backend
+```
