@@ -45,7 +45,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/remix-app
           packageManager: bun
-          command: pages deploy ./build --project-name=full-stack-cloudflare-app
+          command: pages deploy ./build/client --project-name=full-stack-cloudflare-app
       
       - name: Add Deployment URL Comment
         if: github.event_name == 'pull_request'
