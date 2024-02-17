@@ -14,7 +14,7 @@ export function createDB(c: Context) {
   return drizzle(c.env.DB, { schema });
 }
 
-export default async function injectDB(c: Context, next: Function) {
+export default async function injectDB(c: Context, next: () => Promise<void>) {
   c.set("db", createDB(c));
   await next();
 }

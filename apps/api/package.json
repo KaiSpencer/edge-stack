@@ -11,13 +11,16 @@
     "migrate": "wrangler d1 migrations apply full-stack-cloudflare-db",
     "test": "vitest",
     "clean-test-db": "wrangler d1 execute full-stack-cloudflare-db-test --local --env test --file=./test/clean-test-db.sql --persist-to=./test/temp-d1-db",
-    "seed-test-db": "wrangler d1 execute full-stack-cloudflare-db-test --local --env test --file=./test/seed-test-db.sql --persist-to=./test/temp-d1-db"
+    "seed-test-db": "wrangler d1 execute full-stack-cloudflare-db-test --local --env test --file=./test/seed-test-db.sql --persist-to=./test/temp-d1-db",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply-unsafe"
   },
   "dependencies": {
     "drizzle-orm": "^0.29.3",
     "hono": "^4.0.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@cloudflare/workers-types": "^4.20240129.0",
     "@types/bun": "^1.0.5",
     "drizzle-kit": "^0.20.14",
