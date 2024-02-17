@@ -1,0 +1,120 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "id": "9206f307-54db-4f9e-973e-f2cc3e9eb7c3",
+  "prevId": "fe8d8733-74a6-4aa2-a0b6-966c09a36d57",
+  "tables": {
+    "items": {
+      "name": "items",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "items_to_shopping_lists": {
+      "name": "items_to_shopping_lists",
+      "columns": {
+        "item_id": {
+          "name": "item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "shopping_list_id": {
+          "name": "shopping_list_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "items_to_shopping_lists_item_id_items_id_fk": {
+          "name": "items_to_shopping_lists_item_id_items_id_fk",
+          "tableFrom": "items_to_shopping_lists",
+          "tableTo": "items",
+          "columnsFrom": [
+            "item_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "items_to_shopping_lists_shopping_list_id_shoppingLists_id_fk": {
+          "name": "items_to_shopping_lists_shopping_list_id_shoppingLists_id_fk",
+          "tableFrom": "items_to_shopping_lists",
+          "tableTo": "shoppingLists",
+          "columnsFrom": [
+            "shopping_list_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "items_to_shopping_lists_item_id_shopping_list_id_pk": {
+          "columns": [
+            "item_id",
+            "shopping_list_id"
+          ],
+          "name": "items_to_shopping_lists_item_id_shopping_list_id_pk"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "shoppingLists": {
+      "name": "shoppingLists",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {
+      "\"shoppingList\"": "\"shoppingLists\""
+    },
+    "columns": {}
+  }
+}

@@ -1,6 +1,19 @@
 import { Hono } from "hono";
+import injectDB, { Bindings, Variables } from "./db/injectDb";
 
-const v1_0 = new Hono().get("/", (c) => c.json({ message: "Pong!" }));
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>().get(
+  "/",
+  injectDB,
+  async (c) => {
+    const items = await c.get("db").query.items.findMany().execute();
+    console.log("[items]", items);
 
-const app = new Hono().route("/v1.0", v1_0);
+    return c.json({ message: "Pong!" });
+  },
+);
+
+app.get("/items", injectDB, async (c) => {
+  return c.json(await c.get("db").query.items.findMany().execute());
+});
+
 export default app;
