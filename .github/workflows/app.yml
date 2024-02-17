@@ -50,5 +50,5 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            App Preview Deployment URL: ${{ steps.deploy.outputs.deployment-url }}
+            App Preview Deployment URL: ${{ steps.Deploy.outputs.deployment-url }}
           comment_tag: preview-url
