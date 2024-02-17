@@ -2,7 +2,8 @@
   "name": "full-stack-cloudflare",
   "private": true,
   "scripts": {
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "postinstall": "bunx lefthook install"
   },
   "devDependencies": {
     "prettier": "^3.1.1"
