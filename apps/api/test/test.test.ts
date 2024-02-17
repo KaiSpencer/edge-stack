@@ -21,7 +21,7 @@ describe("smoke", () => {
     execSync(`bun run clean-test-db`);
     await worker.stop();
   });
-
+  //
   it("GET /items should return items", async () => {
     const res = await worker.fetch("/items");
     expect(res.status).toBe(200);
