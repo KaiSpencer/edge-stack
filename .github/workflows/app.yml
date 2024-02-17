@@ -46,13 +46,9 @@ jobs:
           packageManager: bun
           command: pages deploy ./public --project-name=full-stack-cloudflare-app
       
-      - name: Add Comment
-        uses: actions/github-script@v7
+      - name: Add Deployment URL Comment
+        uses: thollander/actions-comment-pull-request@v2
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'App Preview Deployment URL: \n\n ${{ steps.deploy.outputs.deployment-url }}'
-            })
+          message: |
+            App Preview Deployment URL: ${{ steps.deploy.outputs.deployment-url }}
+          comment_tag: preview-url
