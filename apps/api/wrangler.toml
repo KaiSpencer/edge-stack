@@ -15,7 +15,13 @@ mode = "smart"
 # binding = "MY_BUCKET"
 # bucket_name = "my-bucket"
 
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "my-database"
-# database_id = ""
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "full-stack-cloudflare-db"
+database_id = "f3570301-aac9-4dc1-97b9-84adecb87f4c"
+migrations_dir = "drizzle"
+
+[env.test]
+d1_databases = [
+    { binding = "DB", database_name = "full-stack-cloudflare-db-test", database_id = "6e3f30c1-e1f8-4060-b0d3-8c733a1a8dd4", migrations_dir = "drizzle" }
+]

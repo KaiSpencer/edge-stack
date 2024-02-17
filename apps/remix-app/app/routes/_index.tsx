@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
-  const ping = await API(context)["v1.0"].$get();
+  const ping = await API(context).index.$get();
   return json(await ping.json());
 };
 
