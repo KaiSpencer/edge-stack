@@ -9,7 +9,7 @@ const app = new Hono<{ Bindings: Bindings; Variables: Variables }>().get(
     console.log("[items]", items);
 
     return c.json({ message: "Pong!" });
-  }
+  },
 );
 
 app.get("/items", injectDB, async (c) => {

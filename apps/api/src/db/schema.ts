@@ -46,7 +46,7 @@ export const itemsToShoppingLists = sqliteTable(
         columns: [table.itemId, table.shoppingListId],
       }),
     };
-  }
+  },
 );
 
 export const itemsToShoppingListsRelations = relations(
@@ -60,5 +60,5 @@ export const itemsToShoppingListsRelations = relations(
       fields: [itemsToShoppingLists.shoppingListId],
       references: [shoppingLists.id],
     }),
-  })
+  }),
 );
