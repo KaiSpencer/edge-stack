@@ -48,6 +48,7 @@ jobs:
           command: pages deploy ./public --project-name=full-stack-cloudflare-app
       
       - name: Add Deployment URL Comment
+        if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
