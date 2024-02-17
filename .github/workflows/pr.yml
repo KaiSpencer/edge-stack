@@ -16,9 +16,13 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Check typescript
+      - name: Typecheck API
         run: bun run typecheck
         working-directory: apps/api
+      
+      - name: Typecheck remix-app
+        run: bun run typecheck
+        working-directory: apps/remix-app
   
   formatting:
     name: Formatting
