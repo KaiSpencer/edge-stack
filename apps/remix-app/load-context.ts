@@ -1,6 +1,7 @@
-import { type PlatformProxy } from "wrangler";
+import type { PlatformProxy } from "wrangler";
 
 type Env = {
+  // biome-ignore lint/style/useNamingConvention: Environment variables are fine
   API_URL: string;
 };
 
