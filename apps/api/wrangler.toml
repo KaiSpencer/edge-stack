@@ -1,4 +1,4 @@
-name = "full-stack-cloudflare-api"
+name = "edge-stack-api"
 compatibility_date = "2023-12-01"
 
 [placement]
@@ -17,11 +17,11 @@ mode = "smart"
 
 [[d1_databases]]
 binding = "DB" # i.e. available in your Worker on env.DB
-database_name = "full-stack-cloudflare-db"
+database_name = "edge-stack-db"
 database_id = "f3570301-aac9-4dc1-97b9-84adecb87f4c"
 migrations_dir = "drizzle"
 
 [env.test]
 d1_databases = [
-    { binding = "DB", database_name = "full-stack-cloudflare-db-test", database_id = "6e3f30c1-e1f8-4060-b0d3-8c733a1a8dd4", migrations_dir = "drizzle" }
+    { binding = "DB", database_name = "edge-stack-db-test", database_id = "6e3f30c1-e1f8-4060-b0d3-8c733a1a8dd4", migrations_dir = "drizzle" }
 ]

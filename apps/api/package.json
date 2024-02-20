@@ -1,17 +1,17 @@
 {
-  "name": "@full-stack-cloudflare/api",
+  "name": "@edge-stack/api",
   "main": "src/index.ts",
   "scripts": {
     "dev": "wrangler dev src/index.ts --port 3001",
     "deploy": "wrangler deploy --minify src/index.ts",
     "generate": "drizzle-kit generate:sqlite",
     "up": "drizzle-kit up:sqlite",
-    "migrate:local": "wrangler d1 migrations apply full-stack-cloudflare-db --local",
-    "migrate:test": "wrangler d1 migrations apply full-stack-cloudflare-db-test --local --persist-to=./test/temp-d1-db --env test",
-    "migrate": "wrangler d1 migrations apply full-stack-cloudflare-db",
+    "migrate:local": "wrangler d1 migrations apply edge-stack-db --local",
+    "migrate:test": "wrangler d1 migrations apply edge-stack-db-test --local --persist-to=./test/temp-d1-db --env test",
+    "migrate": "wrangler d1 migrations apply edge-stack-db",
     "test": "vitest",
-    "clean-test-db": "wrangler d1 execute full-stack-cloudflare-db-test --local --env test --file=./test/clean-test-db.sql --persist-to=./test/temp-d1-db",
-    "seed-test-db": "wrangler d1 execute full-stack-cloudflare-db-test --local --env test --file=./test/seed-test-db.sql --persist-to=./test/temp-d1-db",
+    "clean-test-db": "wrangler d1 execute edge-stack-db-test --local --env test --file=./test/clean-test-db.sql --persist-to=./test/temp-d1-db",
+    "seed-test-db": "wrangler d1 execute edge-stack-db-test --local --env test --file=./test/seed-test-db.sql --persist-to=./test/temp-d1-db",
     "lint": "biome lint .",
     "lint:fix": "biome lint . --apply-unsafe",
     "typecheck": "tsc --project ./tsconfig.json"

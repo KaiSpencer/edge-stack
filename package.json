@@ -1,5 +1,5 @@
 {
-  "name": "full-stack-cloudflare",
+  "name": "edge-stack",
   "private": true,
   "scripts": {
     "format": "biome format .",
@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "prettier": "^3.1.1",
-    "@biomejs/biome":"^1.5.3"
+    "@biomejs/biome": "^1.5.3"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
