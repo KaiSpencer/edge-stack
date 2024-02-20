@@ -1,4 +1,4 @@
-import app from "@full-stack-cloudflare/api";
+import app from "@edge-stack/api";
 import { AppLoadContext } from "@remix-run/cloudflare";
 import { hc } from "hono/client";
 

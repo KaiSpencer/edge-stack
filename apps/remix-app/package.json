@@ -12,11 +12,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/cloudflare": "^2.6.0",
-    "@remix-run/cloudflare-pages": "^2.6.0",
-    "@remix-run/css-bundle": "^2.6.0",
-    "@remix-run/react": "^2.6.0",
-    "@full-stack-cloudflare/api": "workspace:*",
+    "@remix-run/cloudflare": "^2.7.0-pre.0",
+    "@remix-run/cloudflare-pages": "^2.7.0-pre.0",
+    "@remix-run/css-bundle": "^2.7.0-pre.0",
+    "@remix-run/react": "^2.7.0-pre.0",
+    "@edge-stack/api": "workspace:*",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
