@@ -11,5 +11,33 @@
       "apps/remix-app/public/build",
       "apps/api/drizzle/meta"
     ]
+  },
+  "linter":{
+    "enabled": true,
+    "rules": {
+      "all": true,
+      "suspicious":{
+        "all": true,
+        "noConsoleLog":"warn"
+      },
+      "style": {
+        "all": true,
+        "noDefaultExport":"off"
+      },
+      "nursery":{
+        "all": true,
+        "noNodejsModules": "off",
+        "useImportRestrictions":"off"
+      }
+    },
+    "ignore": [
+      "apps/api/.wrangler/",
+      "apps/remix-app/public/build",
+      "apps/remix-app/build",
+      "apps/remix-app/functions/[[path]].ts",
+      "apps/remix-app/functions/[[path]].js",
+      "apps/remix-app/functions/[[path]].js.map",
+      "apps/api/drizzle/meta"
+    ]
   }
 }

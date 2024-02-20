@@ -1,5 +1,5 @@
-import app from "@edge-stack/api";
-import { AppLoadContext } from "@remix-run/cloudflare";
+import type app from "@edge-stack/api";
+import type { AppLoadContext } from "@remix-run/cloudflare";
 import { hc } from "hono/client";
 
 export const API = (context: AppLoadContext) => {

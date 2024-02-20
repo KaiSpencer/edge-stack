@@ -55,13 +55,9 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Lint API
+      - name: Run Linting
         run: bun run lint
-        working-directory: apps/api
 
-      - name: Lint remix-app
-        run: bun run lint
-        working-directory: apps/remix-app
 
   build:
     name: Build

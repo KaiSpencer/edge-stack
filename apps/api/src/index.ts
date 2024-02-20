@@ -1,18 +1,18 @@
 import { Hono } from "hono";
-import injectDB, { Bindings, Variables } from "./db/injectDb";
+import injectDb, { type Bindings, type Variables } from "./db/injectDb";
 
+// biome-ignore lint/style/useNamingConvention: Hono variables are fine
 const app = new Hono<{ Bindings: Bindings; Variables: Variables }>().get(
   "/",
-  injectDB,
+  injectDb,
   async (c) => {
-    const items = await c.get("db").query.items.findMany().execute();
-    console.log("[items]", items);
+    const _items = await c.get("db").query.items.findMany().execute();
 
     return c.json({ message: "Pong!" });
   },
 );
 
-app.get("/items", injectDB, async (c) => {
+app.get("/items", injectDb, async (c) => {
   return c.json(await c.get("db").query.items.findMany().execute());
 });
 
