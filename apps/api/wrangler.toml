@@ -20,6 +20,7 @@ binding = "DB" # i.e. available in your Worker on env.DB
 database_name = "edge-stack-db"
 database_id = "f3570301-aac9-4dc1-97b9-84adecb87f4c"
 migrations_dir = "drizzle"
+# database_id = ""
 
 [env.test]
 d1_databases = [

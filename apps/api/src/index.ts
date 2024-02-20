@@ -6,7 +6,8 @@ const app = new Hono<{ Bindings: Bindings; Variables: Variables }>().get(
   "/",
   injectDb,
   async (c) => {
-    const _items = await c.get("db").query.items.findMany().execute();
+    const items = await c.get("db").query.items.findMany().execute();
+    console.log("ITEMS", items);
 
     return c.json({ message: "Pong!" });
   },
