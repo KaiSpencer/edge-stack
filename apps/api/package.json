@@ -1,6 +1,7 @@
 {
   "name": "@edge-stack/api",
   "type": "module",
+  "main": "src/index.ts",
   "scripts": {
     "dev": "vite",
     "build": "esbuild --bundle src/index.ts --format=esm --outfile=dist/_worker.js",
