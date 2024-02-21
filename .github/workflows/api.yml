@@ -36,7 +36,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: apps/remix-app
+          workingDirectory: apps/remix-api
           packageManager: bun
           command: pages deploy dist --project-name=edge-stack-api
         
