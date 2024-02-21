@@ -8,6 +8,7 @@
     "indentStyle": "space",
     "ignore": [
       "apps/api/.wrangler/",
+      "apps/api/dist",
       "apps/remix-app/public/build",
       "apps/remix-app/build",
       "apps/remix-app/functions",

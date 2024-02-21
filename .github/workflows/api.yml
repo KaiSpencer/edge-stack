@@ -5,8 +5,19 @@ on:
     branches:
       - main
     paths:
-      - "api/**"
+      - "apps/api/**"
       - ".github/workflows/api.yml"
+  pull_request:
+    types:
+      - "synchronize"
+      - "opened"
+    paths:
+      - "apps/api/**"
+      - ".github/workflows/api.yml"
+
+permissions: 
+  pull-requests: write
+  issues: write
 
 jobs:
   deploy:
@@ -18,11 +29,29 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
+      
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Build API
+        run: bun run build
+        working-directory: apps/api
 
       - name: Deploy
+        id: deploy-api
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/api
           packageManager: bun
-          command: deploy --minify src/index.ts
+          command: pages deploy dist --project-name=edge-stack-api
+        
+      - name: Add Deployment URL Comment
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            API Preview Deployment URL: ${{ steps.deploy-api.outputs.deployment-url }}
+          comment_tag: preview-url-api
+  
