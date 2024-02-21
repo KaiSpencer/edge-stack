@@ -5,7 +5,14 @@ on:
     branches:
       - main
     paths:
-      - "api/**"
+      - "apps/api/**"
+      - ".github/workflows/api.yml"
+  pull_request:
+    types:
+      - "synchronize"
+      - "opened"
+    paths:
+      - "apps/api/**"
       - ".github/workflows/api.yml"
 
 permissions: 
