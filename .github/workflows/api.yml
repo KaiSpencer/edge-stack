@@ -38,7 +38,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/remix-app
           packageManager: bun
-          command: wrangler pages deploy dist
+          command: pages deploy dist
         
       - name: Add Deployment URL Comment
         if: github.event_name == 'pull_request'
