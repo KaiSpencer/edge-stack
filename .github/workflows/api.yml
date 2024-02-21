@@ -29,6 +29,12 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
+      
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Build API
+        run: bun run build
 
       - name: Deploy
         id: deploy-api
