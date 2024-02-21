@@ -35,6 +35,7 @@ jobs:
 
       - name: Build API
         run: bun run build
+        working-directory: apps/api
 
       - name: Deploy
         id: deploy-api
