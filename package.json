@@ -17,8 +17,5 @@
   },
   "workspaces": [
     "apps/*"
-  ],
-  "dependencies": {
-    "zod": "^3.22.4"
-  }
+  ]
 }
