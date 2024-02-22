@@ -8,10 +8,6 @@ on:
       - "api/**"
       - ".github/workflows/api.yml"
 
-permissions: 
-  pull-requests: write
-  issues: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,20 +20,9 @@ jobs:
           bun-version: latest
 
       - name: Deploy
-        id: deploy-api
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: apps/remix-app
+          workingDirectory: apps/api
           packageManager: bun
-          command: wrangler pages deploy dist
-        
-      - name: Add Deployment URL Comment
-        if: github.event_name == 'pull_request'
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            API Preview Deployment URL: ${{ steps.deploy-api.outputs.deployment-url }}
-          comment_tag: preview-url-api
-  
+          command: deploy --minify src/index.ts
