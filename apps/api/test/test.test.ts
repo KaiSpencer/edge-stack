@@ -22,13 +22,76 @@ describe("smoke", () => {
     await worker.stop();
   });
 
-  it("GET /items should return items", async () => {
-    const res = await worker.fetch("/items");
+  it("GET /todos should return todos", async () => {
+    const res = await worker.fetch("/todos");
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual([
-      { id: expect.any(Number), name: "item1" },
-      { id: expect.any(Number), name: "item2" },
+      {
+        id: expect.any(Number),
+        name: "thing1",
+        completed: false,
+        completedTimestamp: null,
+      },
+      {
+        id: expect.any(Number),
+        name: "thing2",
+        completed: false,
+        completedTimestamp: null,
+      },
+      {
+        id: expect.any(Number),
+        name: "thing3",
+        completed: false,
+        completedTimestamp: null,
+      },
+      {
+        id: expect.any(Number),
+        name: "thing4",
+        completed: true,
+        completedTimestamp: "2024-02-21T15:09:14.724Z",
+      },
     ]);
+  });
+  it("POST /todos should add a todo", async () => {
+    const res = await worker.fetch("/todos", {
+      method: "POST",
+      body: new URLSearchParams({ name: "thing5" }),
+    });
+    expect(res.status).toBe(200);
+
+    expect(await res.json()).to.have.property("success", true);
+  });
+  it("PUT /todos/mark-complete should insert a complete todo", async () => {
+    const res = await worker.fetch("/todos/mark-complete", {
+      method: "PUT",
+      body: new URLSearchParams({ id: "5" }),
+    });
+    expect(res.status).toBe(200);
+    const after = await worker.fetch("/todos");
+    const afterJson = (await after.json()) as object[];
+    expect(afterJson).to.have.length(5);
+    expect(afterJson[4]).to.have.property("completed", true);
+  });
+  it("PUT /todos/mark-complete should update todo to complete", async () => {
+    const res = await worker.fetch("/todos/mark-complete", {
+      method: "PUT",
+      body: new URLSearchParams({ id: "1" }),
+    });
+    expect(res.status).toBe(200);
+    const after = await worker.fetch("/todos");
+    const afterJson = (await after.json()) as object[];
+    expect(afterJson).to.have.length(5);
+    expect(afterJson[0]).to.have.property("completed", true);
+  });
+  it("DELETE /todos should remove a todo", async () => {
+    const res = await worker.fetch("/todos", {
+      method: "DELETE",
+      body: new URLSearchParams({ id: "5" }),
+    });
+    expect(res.status).toBe(200);
+    const after = await worker.fetch("/todos");
+    const afterJson = (await after.json()) as object[];
+    expect(afterJson).to.have.length(4);
   });
   it("GET / should return Pong!", async () => {
     const res = await worker.fetch("/");

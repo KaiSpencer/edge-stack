@@ -5,6 +5,7 @@ import { getPlatformProxy } from "wrangler";
 export default defineConfig(async () => {
   const { env, dispose } = await getPlatformProxy();
   return {
+    server: { port: 3001 },
     plugins: [
       devServer({
         env,

@@ -8,7 +8,9 @@
     "build": "remix vite:build",
     "start": "wrangler pages dev ./build/client",
     "deploy": "bun run build && wrangler pages deploy ./build/client --project-name=edge-stack-app",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "logs:preview": "wrangler pages deployment tail --environment preview --project-name edge-stack-app",
+    "logs:prod": "wrangler pages deployment tail --project-name edge-stack-app"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.7.0-pre.0",
