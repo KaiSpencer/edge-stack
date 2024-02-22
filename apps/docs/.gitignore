@@ -1,4 +1,4 @@
-.vitepress
+.vitepress/cache
+.vitepress/dist
 # not this next line
-!.vitepress/config.mts
 node_modules

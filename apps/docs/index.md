@@ -3,23 +3,34 @@
 layout: home
 
 hero:
-  name: "Edge Stack Docs"
+  name: "Edge Stack"
   text: "Full Stack on the Edge Runtime"
   tagline: Built on Cloudflare
+  image:
+    src: /cloudflare.jpeg
   actions:
     - theme: brand
       text: Get Started
-      link: /getting-started
+      link: /getting-started/about
     - theme: alt
       text: API Examples
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Workers
+    details: Edge api built with Hono
+    icon: 
+      src: /workers.svg
+      width: 100
+  - title: Pages
+    details: Remix app with RPC to the API. Docs site built with VitePress
+    icon: 
+      src: /pages.svg
+      width: 100
+  - title: D1
+    details: Sqlite running on D1
+    icon: 
+      src: /public/d1.svg
+      width: 180
 ---
 

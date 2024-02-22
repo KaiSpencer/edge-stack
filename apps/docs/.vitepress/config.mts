@@ -2,21 +2,22 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Edge Stack Docs",
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  title: "Edge Stack",
   description: "Full Stack on the Edge Runtime",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
+      { text: "Get Started", link: "/getting-started/about" },
     ],
 
     sidebar: [
       {
-        text: "Examples",
+        text: "Getting Started",
+        collapsed:false,
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "About", link: "/getting-started/about" },
         ],
       },
     ],
