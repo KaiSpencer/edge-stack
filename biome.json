@@ -15,7 +15,9 @@
       "apps/remix-app/functions/[[path]].ts",
       "apps/remix-app/functions/[[path]].js",
       "apps/remix-app/functions/[[path]].js.map",
-      "apps/api/drizzle/meta"
+      "apps/api/drizzle/meta",
+      "apps/docs/.vitepress/cache",
+      "apps/docs/.vitepress/dist"
     ]
   },
   "linter": {
