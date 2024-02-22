@@ -3,9 +3,12 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "deploy": "$npm_execpath run build && wrangler pages deploy .vitepress/dist --project-name=edge-stack-docs",
+    "first-deploy": "$npm_execpath run build && wrangler pages deploy .vitepress/dist"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-rc.44"
+    "vitepress": "^1.0.0-rc.44",
+    "wrangler": "^3.29.0"
   }
 }
