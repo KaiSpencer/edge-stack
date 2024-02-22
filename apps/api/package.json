@@ -3,10 +3,8 @@
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "esbuild --bundle src/index.ts --format=esm --outfile=dist/_worker.js",
-    "preview": "wrangler pages dev dist",
-    "deploy": "$npm_execpath run build && wrangler pages deploy dist",
+    "dev": "wrangler dev src/index.ts --port 3001",
+    "deploy": "wrangler deploy --minify src/index.ts",
     "generate": "drizzle-kit generate:sqlite",
     "up": "drizzle-kit up:sqlite",
     "migrate:local": "wrangler d1 migrations apply edge-stack-db --local",
@@ -17,9 +15,7 @@
     "seed-test-db": "wrangler d1 execute edge-stack-db-test --local --env test --file=./test/seed-test-db.sql --persist-to=./test/temp-d1-db",
     "lint": "biome lint .",
     "lint:fix": "biome lint . --apply-unsafe",
-    "typecheck": "tsc --project ./tsconfig.json",
-    "logs:preview": "wrangler pages deployment tail --environment preview --project-name edge-stack-api",
-    "logs:prod": "wrangler pages deployment tail --project-name edge-stack-api"
+    "typecheck": "tsc --project ./tsconfig.json"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.1.11",
@@ -30,12 +26,9 @@
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@cloudflare/workers-types": "^4.20240208.0",
-    "@hono/vite-cloudflare-pages": "^0.2.4",
-    "@hono/vite-dev-server": "^0.5.0",
     "@types/bun": "^1.0.5",
     "drizzle-kit": "^0.20.14",
     "vitest": "^1.3.0",
-    "vite": "^5.1.3",
     "wrangler": "^3.28.4"
   }
 }

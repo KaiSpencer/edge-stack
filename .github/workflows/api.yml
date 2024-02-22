@@ -5,14 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "apps/api/**"
-      - ".github/workflows/api.yml"
-  pull_request:
-    types:
-      - "synchronize"
-      - "opened"
-    paths:
-      - "apps/api/**"
+      - "api/**"
       - ".github/workflows/api.yml"
 
 permissions: 
@@ -29,13 +22,6 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      
-      - name: Install Dependencies
-        run: bun install
-
-      - name: Build API
-        run: bun run build
-        working-directory: apps/api
 
       - name: Deploy
         id: deploy-api
@@ -43,9 +29,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: apps/api
+          workingDirectory: apps/remix-app
           packageManager: bun
-          command: pages deploy dist --project-name=edge-stack-api
+          command: wrangler pages deploy dist
         
       - name: Add Deployment URL Comment
         if: github.event_name == 'pull_request'
