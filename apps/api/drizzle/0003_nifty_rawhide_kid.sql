@@ -1,0 +1,1 @@
+ALTER TABLE `todos` RENAME COLUMN `title` TO `name`;
