@@ -1,0 +1,4 @@
+.vitepress/cache
+.vitepress/dist
+# not this next line
+node_modules
