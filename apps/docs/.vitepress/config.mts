@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   title: "Edge Stack",
   description: "Full Stack on the Edge Runtime",
   themeConfig: {
@@ -15,10 +15,8 @@ export default defineConfig({
     sidebar: [
       {
         text: "Getting Started",
-        collapsed:false,
-        items: [
-          { text: "About", link: "/getting-started/about" },
-        ],
+        collapsed: false,
+        items: [{ text: "About", link: "/getting-started/about" }],
       },
     ],
 
